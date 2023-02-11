@@ -23,6 +23,7 @@ namespace _Project.Scripts.Main.AppServices
             { Scenes.Boot, "Boot" },
             { Scenes.MainMenu, "MainMenu" },
             { Scenes.MiniGameLevel, "MiniGameLevel" },
+            { Scenes.ModelView, "ModelView"}
         };
 
         public string MainMenuScene => _mainMenuScene.scenePath;
@@ -100,6 +101,8 @@ namespace _Project.Scripts.Main.AppServices
             MainMenu,
             Intro,
             MiniGameLevel,
+            ModelView,
+            
         }
 
         public bool InitialSceneEquals(Scenes scene)

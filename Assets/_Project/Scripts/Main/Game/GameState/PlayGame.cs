@@ -13,7 +13,7 @@ namespace _Project.Scripts.Main.Game.GameState
             {
                 await UniTask.Yield();
                 Services.GameManagerService.PrepareToPlay();
-                await Services.SceneLoaderService.LoadSceneAsync(SceneLoaderService.Scenes.MiniGameLevel);
+                await Services.SceneLoaderService.LoadSceneAsync(SceneLoaderService.Scenes.ModelView);
             }
 
             public override async UniTask ExitState()

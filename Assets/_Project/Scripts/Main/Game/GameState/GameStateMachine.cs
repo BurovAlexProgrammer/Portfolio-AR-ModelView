@@ -33,7 +33,7 @@ namespace _Project.Scripts.Main.Game.GameState
         {
             if (_activeState == newState)
             {
-                Debug.Log("GameState Enter: " + newState + " (Already entered, skipped)", this);
+                Debug.Log($"GameState Enter: {newState} (Already entered, skipped)", this);
                 return;
             }
 

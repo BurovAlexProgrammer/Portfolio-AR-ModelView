@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 6aa1eefc7bd3410468be900971f2600e
   m_SerializeEntries:
-  - m_GUID: 9fc0d4010bbf28b4594072e72b8655ab
-    m_Address: MiniGameLevel
+  - m_GUID: c3b22b8a546138249884b86169352089
+    m_Address: ModelView
     m_ReadOnly: 0
     m_SerializedLabels:
     - scene
