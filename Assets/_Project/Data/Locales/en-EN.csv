@@ -1,5 +1,5 @@
 en_EN
-{"name":"en-EN","fullName":"English"}
+{"Name":"en-EN","FullName":"English"}
 
 VideoSettings;;Video Settings;Video Settings;
 NewGame;;New Game;New Game;
@@ -40,3 +40,5 @@ KillsCommon;;Total Kills;Total Kills;
 Statistic;;Statistic;Statistic;
 TotalShootCount;;Total Shoot Count;Total Shoot Count;
 VideoSetting.FilmGrain;;Film Grain;Film Grain;
+Dismiss;;Dismiss;Dismiss;
+Device.PoseNotSupported;;Device does not support pose sensor. Cannot run AR application.;Device does not support pose sensor. Cannot run AR application.;

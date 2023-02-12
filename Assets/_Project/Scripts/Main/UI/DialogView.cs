@@ -4,7 +4,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Scripts.UI
+namespace _Project.Scripts.Main.UI
 {
     [RequireComponent(typeof(CanvasGroup))]
     [RequireComponent(typeof(RectTransform))]
@@ -34,7 +34,6 @@ namespace _Project.Scripts.UI
 
         public async UniTask Show()
         {
-            Switched?.Invoke(true);
             gameObject.SetActive(true);
             await _canvasGroup
                 .DOFade(1f, FadeDuration)
@@ -42,17 +41,20 @@ namespace _Project.Scripts.UI
                 .SetUpdate(true)
                 .SetEase(Ease.InOutQuad)
                 .AsyncWaitForCompletion();
+            Switched?.Invoke(true);
+            Enable();
         }
         
         public async UniTask Close()
         {
-            Switched?.Invoke(false);
+            _canvasGroup.interactable = false;
             await _canvasGroup
                 .DOFade(0f, FadeDuration)
                 .SetUpdate(true)
                 .SetEase(Ease.InOutQuad)
                 .AsyncWaitForCompletion();
-            gameObject.SetActive(false);
+            Switched?.Invoke(false);
+            Disable();
         }
 
         public void Disable()

@@ -1,5 +1,5 @@
 ru_RU
-{"name":"ru-RU","fullName":"Russian"}
+{"Name":"ru-RU","FullName":"Russian"}
 
 VideoSettings;;Video Settings;Видео настройки;
 NewGame;;New Game;Новая игра;
@@ -40,3 +40,5 @@ KillsCommon;;Total Kills;Всего убито;
 Statistic;;Statistic;Статистика;
 TotalShootCount;;Total Shoot Count;Всего выстрелов;
 VideoSetting.FilmGrain;;Film Grain;Зернистость;
+Dismiss;;Dismiss;Понял;
+Device.PoseNotSupported;;Device does not support pose sensor. Cannot run AR application.;Устройство не поддерживает датчик положения. Не удается запустить приложение дополненной реальности.;

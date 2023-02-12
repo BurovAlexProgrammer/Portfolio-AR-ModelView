@@ -1,6 +1,5 @@
 using _Project.Scripts.Extension;
 using _Project.Scripts.Main.AppServices;
-using _Project.Scripts.UI;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;

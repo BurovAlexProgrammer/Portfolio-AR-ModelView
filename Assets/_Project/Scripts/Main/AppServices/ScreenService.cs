@@ -1,4 +1,6 @@
 using _Project.Scripts.Extension;
+using _Project.Scripts.Main.UI;
+using Cysharp.Threading.Tasks;
 using Tayx.Graphy;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -12,6 +14,7 @@ namespace _Project.Scripts.Main.AppServices
         [SerializeField] private Volume _volume;
         [SerializeField] private GraphyManager _internalProfiler;
         [SerializeField] private bool _showProfilerOnStartup;
+        [SerializeField] private AlertView _alertView;
 
         [Inject] private ControlService _controlService;
 
@@ -23,8 +26,14 @@ namespace _Project.Scripts.Main.AppServices
             var controls = _controlService.Controls;
             _internalProfiler.enabled = _showProfilerOnStartup;
             controls.Player.InternalProfiler.BindAction(BindActions.Started, ctx => ToggleShowProfiler());
+            _alertView.gameObject.SetActive(false);
         }
 
+        public void ShowAlert(string title, string message)
+        {
+            _alertView.Show(title, message).Forget();
+        }
+        
         private void ToggleShowProfiler()
         {
             _internalProfiler.enabled = !_internalProfiler.enabled;
