@@ -1,7 +1,7 @@
 ﻿using System;
+using _Project.Scripts.Main.AppServices;
 using _Project.Scripts.Main.UI.Window;
 using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,10 +14,11 @@ namespace _Project.Scripts.Main.UI
     {
         [SerializeField] private Button _buttonDismiss;
         [SerializeField] private Image _background;
-        [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private TextMeshProUGUI _titleText;
         [SerializeField] private TextMeshProUGUI _bodyText;
 
+        private CursorLockMode _lastCursorMode;
+        
         public event Action OnDismiss;
 
         private const float FadeDuration = 0.3f;
@@ -34,31 +35,30 @@ namespace _Project.Scripts.Main.UI
 
         public async UniTask Show(string title, string bodyText)
         {
+            _lastCursorMode = Services.ControlService.CursorLockState;
             _titleText.text = title;
             _bodyText.text = bodyText;
             gameObject.SetActive(true);
             await Show();
+            Services.ControlService.UnlockCursor();
+            Services.ControlService.DisableControls();
         }
-        
-        public async UniTask Close()
-        {
-            await Close();
-            gameObject.SetActive(false);
-        }
+
 
         private void Dismiss()
         {
-            OnDismiss?.Invoke();
-        }
-
-        public void Disable()
-        {
-            _canvasGroup.interactable = false;
-        }
-        
-        public void Enable()
-        {
-            _canvasGroup.interactable = true;
+            UniTask.Void( async () =>
+            {
+                await Close();
+                
+                if (_lastCursorMode is CursorLockMode.None or CursorLockMode.Confined)
+                {
+                    Services.ControlService.UnlockCursor();
+                }
+                
+                Services.ControlService.EnableControls();
+                OnDismiss?.Invoke();
+            });
         }
     }
 }

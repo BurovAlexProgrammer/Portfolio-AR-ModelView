@@ -31,5 +31,15 @@ namespace _Project.Scripts.Main.AppServices
         {
             Cursor.lockState = CursorLockMode.None;
         }
+
+        public void DisableControls()
+        {
+            Controls.Disable();
+        }
+        
+        public void EnableControls()
+        {
+            Controls.Enable();
+        }
     }
 }

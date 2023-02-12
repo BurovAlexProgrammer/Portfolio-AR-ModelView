@@ -7,14 +7,14 @@ namespace _Project.Scripts.Main.AppServices
     public class ArControlService : IDisposable
     {
         private VuforiaApplication _vuforiaApplication;
-        private VuforiaBehaviour _vuforiaBehaviour;
+        // private VuforiaBehaviour _vuforiaBehaviour;
         
         public event Action<VuforiaInitError> OnVuforiaInitialized;
 
         public ArControlService()
         {
             _vuforiaApplication = VuforiaApplication.Instance;
-            _vuforiaBehaviour = VuforiaBehaviour.Instance; 
+            // _vuforiaBehaviour = VuforiaBehaviour.Instance; 
             _vuforiaApplication.OnVuforiaInitialized += VuforiaInitialized;
         }
         

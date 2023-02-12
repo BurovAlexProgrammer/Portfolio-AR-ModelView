@@ -17,14 +17,24 @@ namespace _Project.Scripts.Main.UI.Window
         {
             gameObject.SetActive(true);
             await transform.DOCustomShowWindow().AsyncWaitForCompletion();
-            _canvasGroup.interactable = true;
+            Enable();
         }
 
         public virtual async UniTask Close()
         {
             _canvasGroup.interactable = false;
             await transform.DOCustomHideWindow().AsyncWaitForCompletion();
-            gameObject.SetActive(false);
+            Disable();
+        }
+        
+        public void Disable()
+        {
+            _canvasGroup.interactable = false;
+        }
+        
+        public void Enable()
+        {
+            _canvasGroup.interactable = true;
         }
 
         protected virtual void OnDialogSwitched(bool state)

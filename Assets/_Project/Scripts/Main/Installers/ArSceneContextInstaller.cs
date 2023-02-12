@@ -1,6 +1,7 @@
-﻿using Zenject;
+﻿using _Project.Scripts.Main.AppServices;
+using Zenject;
 
-namespace _Project.Scripts.Main.AppServices
+namespace _Project.Scripts.Main.Installers
 {
     public class ArSceneContextInstaller : MonoInstaller
     {
