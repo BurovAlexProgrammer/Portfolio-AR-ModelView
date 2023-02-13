@@ -1,6 +1,7 @@
 ﻿using _Project.Scripts.Main.Game;
 using DG.Tweening;
 using UnityEngine;
+using Zenject;
 
 namespace _Project.Scripts.Main.AppServices
 {
