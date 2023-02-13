@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using _Project.Scripts.Main.AppServices;
 using DG.Tweening;
@@ -33,11 +34,16 @@ namespace _Project.Scripts.Main.Installers
             InstallControlService();
             InstallDebugService();
             InstallStatisticService();
-            
+
             if (_debugServicePrefab.SaveLogToFile)
             {
                 Application.logMessageReceived += LogToFile;
             }
+        }
+
+        private void OnDestroy()
+        {
+            Application.logMessageReceived -= LogToFile;
         }
 
         private void InstallStatisticService()

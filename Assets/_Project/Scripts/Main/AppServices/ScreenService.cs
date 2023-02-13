@@ -37,6 +37,12 @@ namespace _Project.Scripts.Main.AppServices
             _consoleSwitcher.onValueChanged.AddListener(SwitchConsole);
             SwitchProfiler(_profilerSwitcher.isOn);
             SwitchConsole(_consoleSwitcher.isOn);
+            Application.logMessageReceived += OnLogMessageReceived;
+        }
+
+        private void OnLogMessageReceived(string condition, string stacktrace, LogType logLevel)
+        {
+            _consoleView.AddRecord(logLevel, condition, stacktrace);
         }
 
         private void OnDestroy()
@@ -44,6 +50,7 @@ namespace _Project.Scripts.Main.AppServices
             Controls.Player.InternalProfiler.UnbindAction(BindActions.Started,  SwitchProfiler);
             _profilerSwitcher.onValueChanged.RemoveListener(SwitchProfiler);
             _consoleSwitcher.onValueChanged.RemoveListener(SwitchConsole);
+            Application.logMessageReceived -= OnLogMessageReceived;
         }
 
         public void ShowAlert(string title, string message)
